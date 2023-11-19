@@ -8,3 +8,8 @@ __pycache__/
 
 # secrets
 .env
+
+# test coverage
+.coverage
+coverage.xml
+.coveragerc
