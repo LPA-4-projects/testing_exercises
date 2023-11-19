@@ -7,9 +7,12 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+
+[tool.poetry.test.dependencies]
 pytest = "7.2.1"
 faker = "^20.0.3"
 pytest-cov = "^4.1.0"
+pytest-testdox = "^3.1.0"
 
 
 [build-system]
@@ -19,7 +22,23 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q"
+addopts = """
+  --strict
+  --tb=short
+  --show-capture=log
+  --cov-report=term-missing:skip-covered
+  --cov-report=xml:coverage.xml
+  --cov-branch
+  --cov=functions
+  --testdox
+  --cov-fail-under=82
+  -p no:sugar
+  --no-header
+  -x
+  """
 testpaths = [
     "tests",
 ]
+norecursedirs = [".git", "__pycache__"]
+testdox_format = "plaintext"
+filterwarnings = "ignore::DeprecationWarning"
