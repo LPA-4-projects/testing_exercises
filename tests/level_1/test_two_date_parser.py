@@ -20,11 +20,11 @@ def test__compose_datetime_from__return_correct_datetime(make_time_str):
     answer = compose_datetime_from(date_str='now', time_str=time_str)
 
     assert type(answer) == datetime.datetime
-    assert now.day == answer.day
-    assert now.month == answer.month
-    assert now.year == answer.year
-    assert time.hour == answer.hour
-    assert time.minute == answer.minute
+    assert answer.day == now.day
+    assert answer.month == now.month
+    assert answer.year == now.year
+    assert answer.hour == time.hour
+    assert answer.minute == time.minute
 
 
 def test__compose_datetime_from__return_correct_datetime_for_tomorrow_date_str(make_time_str):
@@ -37,8 +37,8 @@ def test__compose_datetime_from__return_correct_datetime_for_tomorrow_date_str(m
     answer = compose_datetime_from(date_str='tomorrow', time_str=time_str)
 
     assert type(answer) == datetime.datetime
-    assert tomorrow.day == answer.day
-    assert tomorrow.month == answer.month
-    assert tomorrow.year == answer.year
-    assert time.hour == answer.hour
-    assert time.minute == answer.minute
+    assert answer.day == tomorrow.day
+    assert answer.month == tomorrow.month
+    assert answer.year == tomorrow.year
+    assert answer.hour == time.hour
+    assert answer.minute == time.minute
