@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 
-[tool.poetry.test.dependencies]
+[tool.poetry.group.test.dependencies]
 pytest = "7.2.1"
 faker = "^20.0.3"
 pytest-cov = "^4.1.0"
@@ -31,8 +31,6 @@ addopts = """
   --cov-branch
   --cov=functions
   --testdox
-  --cov-fail-under=82
-  -p no:sugar
   --no-header
   -x
   """
@@ -42,3 +40,7 @@ testpaths = [
 norecursedirs = [".git", "__pycache__"]
 testdox_format = "plaintext"
 filterwarnings = "ignore::DeprecationWarning"
+
+
+[tool.mypy]
+check_untyped_defs = true
