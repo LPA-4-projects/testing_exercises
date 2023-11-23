@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "testing-exercises"
+version = "0.1.0"
+description = ""
+authors = ["Daria Veselkova <daria.veselkova@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.test.dependencies]
+pytest = "7.2.1"
+faker = "^20.0.3"
+pytest-cov = "^4.1.0"
+pytest-testdox = "^3.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = """
+  --strict
+  --tb=short
+  --show-capture=log
+  --cov-report=term-missing:skip-covered
+  --cov-report=xml:coverage.xml
+  --cov-branch
+  --cov=functions
+  --testdox
+  --no-header
+  -x
+  """
+testpaths = [
+    "tests",
+]
+norecursedirs = [".git", "__pycache__"]
+testdox_format = "plaintext"
+filterwarnings = "ignore::DeprecationWarning"
+
+
+[tool.mypy]
+check_untyped_defs = true

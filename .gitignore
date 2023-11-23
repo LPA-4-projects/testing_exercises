@@ -1,0 +1,15 @@
+# virtual environment
+.venv/
+env/
+
+# cache
+__pycache__/
+.mypy_cache/
+
+# secrets
+.env
+
+# test coverage
+.coverage
+coverage.xml
+.coveragerc
